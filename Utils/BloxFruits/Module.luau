@@ -408,9 +408,8 @@ if ar.Sea==0 then
 ar.Sea=table.find({85211729168715,79091703265657,100117331123089},game.PlaceId)or 0
 end
 
-ar.StringVersion=d.GetGameVersion(Y)
-ar.NumberVersion=am(ar.StringVersion)
-
+ar.StringVersion = "v25.0"
+ar.NumberVersion = am(ar.StringVersion)
 do
 if string.sub(ar.StringVersion, 1, 1) ~= "v" then warn("Invalid StringVersion:", ar.StringVersion) return end
 
