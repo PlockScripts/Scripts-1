@@ -389,23 +389,23 @@ Progress={},
 Tools={}
 }
 
-local ar={
-Sea=table.find({2753915549,4442272183,7449423635},game.PlaceId)or 0,
-SeasName={"Main","Dressrosa","Zou"},
-MaxMastery=600,
-MaxLevel=2800
+local LevelCap = game.Players.LocalPlayer:GetAttribute("LevelCap")
+if LevelCap and LevelCap > 2800 and LevelCap <= 3000 then
+ LevelCap = 2800
+end
+
+local ar = {
+Sea = (table.find({2753915549, 85211729168715, 113741252407134, 114279672983750}, game.PlaceId) and 1) or (table.find({4442272183, 79091703265657}, game.PlaceId) and 2) or (table.find({7449423635, 100117331123089}, game.PlaceId) and 3) or 0,
+SeasName = {"Main", "Dressrosa", "Zou"},
+MaxMastery = 600,
+MaxLevel = LevelCap
 }
 
 do
-local as=workspace:GetAttribute"LEVEL_CAP"
-
-if type(as)=="number"and(as>ar.MaxLevel and as<1e4)then
-ar.MaxLevel=as
+local as = workspace:GetAttribute("LEVEL_CAP")
+if type(as) == "number" and as > ar.MaxLevel and as < 1e4 then
+ar.MaxLevel = as
 end
-end
-
-if ar.Sea==0 then
-ar.Sea=table.find({85211729168715,79091703265657,100117331123089},game.PlaceId)or 0
 end
 
 ar.StringVersion = "v25.0"
